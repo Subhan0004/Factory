@@ -1,0 +1,56 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Factory.Models
+@model CategoryModel
+
+@{
+    Layout = null;
+
+    string text = Model.Id != 0 ? "Update" : "Add";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Save Category</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="~/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="~/css/layout.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="~/css/commonDesign.css">
+    <link rel="stylesheet" href="~/css/warninganimation.css">
+
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
+    <script src="~/library/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/library/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="~/library/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</head>
+<body>
+    <form asp-controller="Category" asp-action="SaveCategory" method="post" class="form-group">
+        <div class="form-group">
+            <label asp-for="Name" for="name" class="mr-sm-2">Name:</label>
+            <input asp-for="Name" class="form-control mb-2 mr-sm-2" />
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Note" for="discount" class="mr-sm-2">Note:</label>
+            <input asp-for="Note" class="form-control mb-2 mr-sm-2" />
+            <span class="text-danger" asp-validation-for="Note"></span>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary bgupdate">@text</button>
+        </div>
+    </form>
+</body>
+</html>
