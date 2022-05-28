@@ -8,11 +8,11 @@ namespace Factory.Core.DataAccess.SqlServer
 {
     public class SqlContext
     {
-         public SqlContext(string connectionString)
-    {
-        ConnectionString = connectionString;
-    }
+        public SqlContext(string connectionString)
+        {
+            ConnectionString = connectionString;
+        }
 
-    public string ConnectionString { get; }
-}
+        public string ConnectionString { get; }
+    }
 }
